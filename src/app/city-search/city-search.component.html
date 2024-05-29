@@ -1,1 +1,9 @@
-<p>city-search works!</p>
+<div class="search-container">
+  <input
+    type="text"
+    [formControl]="city"
+    placeholder="Enter city name"
+    class="form-control"
+  />
+  <button (click)="searchCity()" class="btn btn-primary">Search</button>
+</div>
