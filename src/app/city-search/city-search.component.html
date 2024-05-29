@@ -1,9 +1,48 @@
 <div class="search-container">
-  <input
-    type="text"
-    [formControl]="city"
-    placeholder="Enter city name"
-    class="form-control"
+  <label for="city">Enter city name:</label>
+  <input id="city" [formControl]="city" placeholder="City name" />
+  <button (click)="searchCity()">Search</button>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  <p class="error">{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="weatherData" class="weather-card">
+  <h2 class="location">
+    Weather in {{ weatherData?.location?.name }},
+    {{ weatherData?.location?.country }}
+  </h2>
+  <p class="temperature">Temperature: {{ weatherData?.current?.temp_c }} °C</p>
+  <p class="condition">
+    Condition: {{ weatherData?.current?.condition?.text }}
+  </p>
+  <img
+    [src]="weatherData?.current?.condition?.icon"
+    alt="Weather icon"
+    class="condition-icon"
   />
-  <button (click)="searchCity()" class="btn btn-primary">Search</button>
+  <p class="wind">Wind: {{ weatherData?.current?.wind_kph }} kph</p>
+  <p class="humidity">Humidity: {{ weatherData?.current?.humidity }}%</p>
+  <p class="cloud">Cloud cover: {{ weatherData?.current?.cloud }}%</p>
+  <p class="feels-like">
+    Feels like: {{ weatherData?.current?.feelslike_c }} °C
+  </p>
+
+  <h3 class="forecast-title">3-day Forecast</h3>
+  <div
+    *ngFor="let day of weatherData?.forecast?.forecastday"
+    class="forecast-card"
+  >
+    <p class="forecast-date">Date: {{ day?.date }}</p>
+    <p class="max-temp">Max Temp: {{ day?.day?.maxtemp_c }} °C</p>
+    <p class="min-temp">Min Temp: {{ day?.day?.mintemp_c }} °C</p>
+    <p class="avg-temp">Average Temp: {{ day?.day?.avgtemp_c }} °C</p>
+    <p class="forecast-condition">Condition: {{ day?.day?.condition?.text }}</p>
+    <img
+      [src]="day?.day?.condition?.icon"
+      alt="Forecast icon"
+      class="forecast-icon"
+    />
+  </div>
 </div>

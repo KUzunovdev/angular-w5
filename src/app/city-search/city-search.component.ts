@@ -3,19 +3,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { WeatherService } from '../services/weather.service';
+import { WeatherData } from '../models/weather.model';
+import { CommonModule } from '@angular/common';
 
 
 
 @Component({
   selector: 'app-city-search',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule],
   templateUrl: './city-search.component.html',
   styleUrl: './city-search.component.scss'
 })
 export class CitySearchComponent {
 
   city = new FormControl('');
+  weatherData: WeatherData | null = null;
+  errorMessage: string | null = null;
 
   constructor(private weatherService: WeatherService) {}
 
@@ -24,10 +28,12 @@ export class CitySearchComponent {
     if (city) {
       this.weatherService.getWeather(city.trim()).subscribe(
         data => {
-          console.log('Weather data:', data); // Handle data here, perhaps update the view or a model
+          this.weatherData = data;
+          this.errorMessage = null;
         },
         error => {
-          console.error('Failed to load weather data:', error); // Handle errors here
+          this.errorMessage = 'Failed to load weather data';
+          console.error('Failed to load weather data:', error);
         }
       );
     } else {
