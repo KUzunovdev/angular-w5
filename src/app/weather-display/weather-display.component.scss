@@ -1,0 +1,55 @@
+.weather-card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .forecast-buttons {
+    margin-bottom: 20px;
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      margin-right: 10px;
+      cursor: pointer;
+
+      &.active {
+        background-color: #0056b3;
+      }
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .forecast-card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #fff;
+
+    .forecast-date,
+    .max-temp,
+    .min-temp,
+    .avg-temp,
+    .forecast-condition {
+      margin: 5px 0;
+    }
+
+    .forecast-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

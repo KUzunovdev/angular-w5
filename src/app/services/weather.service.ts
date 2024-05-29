@@ -21,4 +21,15 @@ export class WeatherService {
 
     return this.http.get(`${this.baseUrl}/forecast.json`, { params });
   }
+
+
+  getWeatherForecast(days: number): Observable<any> {
+    // Assuming your API allows fetching weather by location (latitude/longitude)
+    const params = new HttpParams()
+      .set('key', this.apiKey)
+      .set('q', 'auto:ip') // Replace with your method of getting the location
+      .set('days', days.toString());
+
+    return this.http.get(`${this.baseUrl}/forecast.json`, { params });
+  }
 }

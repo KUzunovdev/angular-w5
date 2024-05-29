@@ -1,1 +1,35 @@
-<p>weather-display works!</p>
+<div *ngIf="errorMessage" class="error-message">
+  <p class="error">{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="weatherData" class="weather-card">
+  <h2 class="location">
+    Weather Forecast for {{ weatherData?.location?.name }},
+    {{ weatherData?.location?.country }}
+  </h2>
+
+  <div class="forecast-buttons">
+    <button (click)="changeForecastDays(7)" [class.active]="days === 7">
+      7-Day Forecast
+    </button>
+    <button (click)="changeForecastDays(14)" [class.active]="days === 14">
+      14-Day Forecast
+    </button>
+  </div>
+
+  <div
+    *ngFor="let day of weatherData?.forecast?.forecastday"
+    class="forecast-card"
+  >
+    <p class="forecast-date">Date: {{ day?.date }}</p>
+    <p class="max-temp">Max Temp: {{ day?.day?.maxtemp_c }} °C</p>
+    <p class="min-temp">Min Temp: {{ day?.day?.mintemp_c }} °C</p>
+    <p class="avg-temp">Average Temp: {{ day?.day?.avgtemp_c }} °C</p>
+    <p class="forecast-condition">Condition: {{ day?.day?.condition?.text }}</p>
+    <img
+      [src]="day?.day?.condition?.icon"
+      alt="Forecast icon"
+      class="forecast-icon"
+    />
+  </div>
+</div>
