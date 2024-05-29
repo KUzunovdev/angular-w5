@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoricalDataComponent } from './historical-data.component';
+import { WeatherDisplayComponent } from './weather-display.component';
 
-describe('HistoricalDataComponent', () => {
-  let component: HistoricalDataComponent;
-  let fixture: ComponentFixture<HistoricalDataComponent>;
+describe('WeatherDisplayComponent', () => {
+  let component: WeatherDisplayComponent;
+  let fixture: ComponentFixture<WeatherDisplayComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HistoricalDataComponent]
+      imports: [WeatherDisplayComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HistoricalDataComponent);
+    fixture = TestBed.createComponent(WeatherDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

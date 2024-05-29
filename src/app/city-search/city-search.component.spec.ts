@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LiveMarketComponent } from './live-market.component';
+import { CitySearchComponent } from './city-search.component';
 
-describe('LiveMarketComponent', () => {
-  let component: LiveMarketComponent;
-  let fixture: ComponentFixture<LiveMarketComponent>;
+describe('CitySearchComponent', () => {
+  let component: CitySearchComponent;
+  let fixture: ComponentFixture<CitySearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LiveMarketComponent]
+      imports: [CitySearchComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LiveMarketComponent);
+    fixture = TestBed.createComponent(CitySearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
