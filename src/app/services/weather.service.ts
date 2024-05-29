@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
-  private baseUrl: string = 'http://api.weatherapi.com/v1'; // Example endpoint
+  private baseUrl: string = 'http://api.weatherapi.com/v1'; 
   private apiKey: string = 'a82b349427a6492490a134703242905';
 
   
@@ -17,17 +17,17 @@ export class WeatherService {
     const params = new HttpParams()
       .set('key', this.apiKey)
       .set('q', city)
-      .set('days', '3'); // Adjust 'days' based on the forecast length you need
+      .set('days', '3'); 
 
     return this.http.get(`${this.baseUrl}/forecast.json`, { params });
   }
 
 
   getWeatherForecast(days: number): Observable<any> {
-    // Assuming your API allows fetching weather by location (latitude/longitude)
+
     const params = new HttpParams()
       .set('key', this.apiKey)
-      .set('q', 'auto:ip') // Replace with your method of getting the location
+      .set('q', 'auto:ip') 
       .set('days', days.toString());
 
     return this.http.get(`${this.baseUrl}/forecast.json`, { params });

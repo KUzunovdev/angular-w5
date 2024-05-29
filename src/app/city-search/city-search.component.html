@@ -1,7 +1,12 @@
 <div class="search-container">
-  <label for="city">Enter city name:</label>
-  <input id="city" [formControl]="city" placeholder="City name" />
-  <button (click)="searchCity()">Search</button>
+  <label for="city" class="search-label">Enter city name:</label>
+  <input
+    id="city"
+    [formControl]="city"
+    placeholder="City name"
+    class="search-input"
+  />
+  <button (click)="searchCity()" class="search-button">Search</button>
 </div>
 
 <div *ngIf="errorMessage" class="error-message">

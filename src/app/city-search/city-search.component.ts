@@ -37,7 +37,7 @@ export class CitySearchComponent {
         }
       );
     } else {
-      console.log('No city entered'); // Optionally handle the empty input case
+      console.log('No city entered'); 
     }
   }
 }
